@@ -2,7 +2,17 @@ import networkx as nx
 
 from networkx.generators import *
 
+import matplotlib.pyplot as plt
 
+import pandas as pd
+from io import StringIO
+
+
+
+
+
+#二选一
+#################################################################
 def network(n, m):
     """
     function to generate 2d grid networkx graph with required edge and nodes attributes
@@ -16,6 +26,76 @@ def network(n, m):
     reset_graph_state(G)  # initialise link-state of network (as no entangled links present)
     reset_graph_usage(G)  # initialise usage params of network
     return G
+
+
+
+
+#二选一
+#################################################################
+# def network(n, m):
+#     """
+#     function to generate 2d grid networkx graph with required edge and nodes attributes
+
+#     Input Pararmeters:
+#     G    - Networkx graph G(V,E) which defines the topology of the network. see graphs.py for more details
+#     """
+
+#     # Data extracted from the file
+#     data = """
+#     src dst distance(Km)
+#     0   1   161
+#     0   2   294
+#     0   3   163
+#     0   5   144
+#     0   7   178
+#     0   13  254
+#     0   19  463
+#     1   2   160
+#     1   18  43
+#     2   18  140
+#     2   19  361
+#     3   4   25
+#     3   5   56
+#     3   6   52
+#     3   18  139
+#     4   5   37
+#     5   7   37
+#     6   7   68
+#     6   8   72
+#     7   8   134
+#     7   9   35
+#     8   10  53
+#     8   14  209
+#     8   15  280
+#     8   19  216
+#     8   20  231
+#     9   10  66
+#     9   12  69
+#     9   13  90
+#     10  11  51
+#     11  12  11
+#     12  14  283
+#     13  14  159
+#     14  16  103
+#     15  16  84
+#     15  17  121
+#     15  20  151
+#     16  17  56
+#     19  20  141
+#     """
+
+#     # Load data into a DataFrame
+#     df = pd.read_csv(StringIO(data), delim_whitespace=True)
+
+#     # Create a graph from the DataFrame
+#     G = nx.from_pandas_edgelist(df, 'src', 'dst', ['distance(Km)'])
+
+#     update_graph_params(G, p=1, Qc=1)  # initalise p,Qc as 1
+#     reset_graph_state(G)  # initialise link-state of network (as no entangled links present)
+#     reset_graph_usage(G)  # initialise usage params of network
+#     return G
+###################################################################################
+
 
 
 def reset_graph_state(G):
